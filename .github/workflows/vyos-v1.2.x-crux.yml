@@ -7,7 +7,7 @@ on:
 
 env:
   GIT_CLONE_URL: https://github.com/vyos/vyos-build
-  DEBIAN_MIRROR: http://ftp.us.debian.org/debian/
+  DEBIAN_MIRROR: http://archive.debian.org/debian
   BRANCH: crux
   BUILD_ARCH: amd64
   BUILD_BY: vyos-build-action@github.com
@@ -37,7 +37,7 @@ jobs:
         run: |
           git clone -b $BRANCH --single-branch $GIT_CLONE_URL $WORKING_DIR
           cd $WORKING_DIR
-          ./configure --architecture $BUILD_ARCH --build-by $BUILD_BY --build-type $BUILD_TYPE --version $BUILD_VERSION --ova-signing-key $GITHUB_WORKSPACE/tools/$VMWARE_PRIVATE_KEY
+          ./configure --architecture $BUILD_ARCH --build-by $BUILD_BY --build-type $BUILD_TYPE --version $BUILD_VERSION --debian-mirror="http://archive.debian.org/debian"
           mkdir -p ./$ARTIFACTS_DIR
 
       - name: Build ISO Image
