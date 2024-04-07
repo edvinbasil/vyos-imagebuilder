@@ -65,6 +65,8 @@ jobs:
           path: ${{ env.WORKING_DIR }}/${{ env.ARTIFACTS_DIR }}
 
   release:
+    permissions:
+      contents: write
     needs: build
     runs-on: ubuntu-latest
 
