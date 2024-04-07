@@ -44,7 +44,7 @@ jobs:
           sudo make clean
           sudo ./build-vyos-image iso --architecture $BUILD_ARCH --build-by $BUILD_BY --build-type $BUILD_TYPE --version $BUILD_VERSION
           mkdir -p ./$ARTIFACTS_DIR
-          cp -f ./build/vyos-$BUILD_VERSION-$BUILD_ARCH.iso ./$ARTIFACTS_DIR/
+          cp -f ./build/vyos*.iso ./$ARTIFACTS_DIR/
 
       - name: Build QEMU Image
         id: qemu
